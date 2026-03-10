@@ -1,4 +1,4 @@
-// 1. Set Google Script URL (Paste your URL from Google Apps Script here)
+// 1. Set Google Script URL
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxIG9p1TjbMx8uG6jRFY9pr1CSMzpD3KRjICzBx4PWb3n2NfGVBuHoTIwzF0o0TeMuo/exec';
 
 // 2. Prevent choosing past dates
@@ -19,9 +19,9 @@ form.addEventListener('submit', e => {
 
     // Prepare Form Data to send
     const formData = new FormData(form);
-    formData.append('AppointmentID', randomID); // This must match the header in your Google Sheet
+    formData.append('AppointmentID', randomID); 
 
-    // Visual Feedback: Show "Saving..."
+    // Visual Feedback: Show "Processing..."
     const btn = document.getElementById('submitBtn');
     btn.innerText = "Processing...";
     btn.disabled = true;
@@ -29,10 +29,13 @@ form.addEventListener('submit', e => {
     // Send data to Google Sheets
     fetch(scriptURL, { method: 'POST', body: formData })
         .then(response => {
-            // Show the generated ID in the success box
+            // A. Update the Receipt details on the screen
             document.getElementById('displayID').innerText = randomID;
-            
-            // Hide form and show success message
+            document.getElementById('receiptName').innerText = "Patient: " + document.getElementById('userName').value;
+            document.getElementById('receiptDateTime').innerText = 
+                "Slot: " + document.getElementById('appDate').value + " at " + document.getElementById('appTime').value;
+
+            // B. Hide form and show success message
             form.classList.add('hidden');
             document.getElementById('successMessage').classList.remove('hidden');
         })
