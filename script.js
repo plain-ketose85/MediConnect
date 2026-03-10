@@ -1,19 +1,45 @@
-// Ara's Logic: Prevent selecting past dates
-const datePicker = document.getElementById('appDate');
-const today = new Date().toISOString().split('T')[0];
-datePicker.setAttribute('min', today);
+// 1. Set Google Script URL (Paste your URL from Google Apps Script here)
+const scriptURL = 'PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE';
 
-// Form Submission handling
-document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+// 2. Prevent choosing past dates
+const datePicker = document.getElementById('appDate');
+if(datePicker) {
+    const today = new Date().toISOString().split('T')[0];
+    datePicker.setAttribute('min', today);
+}
+
+// 3. Handle Form Submission
+const form = document.getElementById('appointmentForm');
+
+form.addEventListener('submit', e => {
     e.preventDefault();
 
-    // Visual feedback
+    // Generate Unique Appointment ID
+    const randomID = "CF-" + Math.floor(1000 + Math.random() * 9000);
+
+    // Prepare Form Data to send
+    const formData = new FormData(form);
+    formData.append('AppointmentID', randomID); // This must match the header in your Google Sheet
+
+    // Visual Feedback: Show "Saving..."
     const btn = document.getElementById('submitBtn');
     btn.innerText = "Processing...";
-    btn.style.opacity = "0.7";
+    btn.disabled = true;
 
-    setTimeout(() => {
-        document.getElementById('appointmentForm').classList.add('hidden');
-        document.getElementById('successMessage').classList.remove('hidden');
-    }, 1200); // Artificial delay to make it feel like a real system
+    // Send data to Google Sheets
+    fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => {
+            // Show the generated ID in the success box
+            document.getElementById('displayID').innerText = randomID;
+            
+            // Hide form and show success message
+            form.classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            alert("Oops! Something went wrong. Please try again.");
+            btn.innerText = "Request Appointment";
+            btn.disabled = false;
+        });
 });
