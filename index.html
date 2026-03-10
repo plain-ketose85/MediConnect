@@ -53,21 +53,20 @@
         </form>
 
         <div id="successMessage" class="hidden">
-            <div class="success-icon">❤️</div>
-            <h3>Thank You for Booking!</h3>
-            
-            <div class="appointment-id-box">
-                <p>Your Appointment ID</p>
-                <h2 id="displayID">#CF-0000</h2>
-            </div>
-
-           <p>Your request has been received. We look forward to seeing you at <strong>MediConnect</strong>.</p>
-            <p style="font-size: 0.85rem; color: #64748b; margin-top: 10px;">Please save this ID for your visit and arrive 10 minutes early.</p>
-            
-            <button onclick="location.reload()" class="btn-secondary">Book Another Appointment</button>
-        </div>
+    <div class="success-icon">❤️</div>
+    <h3>Thank You for Booking!</h3>
+    
+    <div class="appointment-id-box" id="printableArea">
+        <p>Your Appointment ID</p>
+        <h2 id="displayID">#CF-0000</h2>
+        <p id="receiptName" style="font-size: 1rem; color: #1e293b; margin-top: 10px;"></p>
+        <p id="receiptDateTime" style="font-size: 0.8rem; color: #64748b;"></p>
     </div>
 
+    <button onclick="window.print()" class="btn-print">🖨️ Print Receipt</button>
+    
+    <button onclick="location.reload()" class="btn-secondary">Book Another Appointment</button>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
