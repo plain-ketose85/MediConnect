@@ -1,5 +1,5 @@
 // 1. Set Google Script URL (Paste your URL from Google Apps Script here)
-const scriptURL = 'PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxIG9p1TjbMx8uG6jRFY9pr1CSMzpD3KRjICzBx4PWb3n2NfGVBuHoTIwzF0o0TeMuo/exec';
 
 // 2. Prevent choosing past dates
 const datePicker = document.getElementById('appDate');
