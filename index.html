@@ -36,7 +36,10 @@
            oninput="this.value = this.value.replace(/[^0-9]/g, '');" 
            required>
 </div>
-
+<button type="button" id="find-location-btn" class="btn-secondary">
+    <i class="fa-solid fa-location-crosshairs"></i> Find Hospitals Near Me
+</button>
+<p id="location-status" style="font-size: 0.8rem; color: #666;"></p>
                 <div class="input-group">
                     <label>Department</label>
                     <select name="Department" id="dept" required>
