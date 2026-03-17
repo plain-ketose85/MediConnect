@@ -4,6 +4,7 @@
     --bg-light: #f4f7f6;
     --white: #ffffff;
     --shadow: 0 10px 25px rgba(0,0,0,0.1);
+    --text-slate: #475569;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
@@ -25,22 +26,23 @@ body { background-color: var(--bg-light); }
     padding: 30px;
     border-radius: 15px;
     box-shadow: var(--shadow);
-    margin: auto 0; /* CENTERS THE CARD VERTICALLY */
+    margin: auto 0;
 }
 
 .header { text-align: center; margin-bottom: 20px; }
-.logo { font-size: 35px; }
+.logo { font-size: 35px; margin-bottom: 10px; color: var(--primary); }
 
 .input-group { margin-bottom: 15px; display: flex; flex-direction: column; }
 .checkbox-row { flex-direction: row !important; align-items: center; gap: 10px; }
 .checkbox-row input { width: auto; }
 
 label { font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: #1e293b; }
-input, select { padding: 10px; border: 1.5px solid #e2e8f0; border-radius: 8px; }
+input, select { padding: 12px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 0.95rem; }
 
 .row { display: flex; gap: 10px; }
 .row .input-group { flex: 1; }
 
+/* --- BUTTONS --- */
 button {
     width: 100%; padding: 12px; border: none; border-radius: 8px;
     font-weight: 600; cursor: pointer; transition: 0.3s;
@@ -48,14 +50,69 @@ button {
 }
 button:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
-.btn-secondary { background: #6c757d; margin-top: 10px; }
-.btn-print { background: #2d3748; margin-top: 10px; }
+/* Updated Geolocation Button */
+.btn-secondary { 
+    background-color: #f8fafc;
+    color: var(--text-slate);
+    border: 1px solid #cbd5e1;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.btn-secondary:hover { background: #f1f5f9; color: #1e293b; transform: none; }
+.btn-secondary i { color: #3b82f6; }
+
+/* Updated Print Button */
+.btn-print { 
+    background: #2563eb; 
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.btn-print:hover { background: #1d4ed8; }
+
+/* --- PHONE INPUT WRAPPER --- */
+.phone-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#country-code {
+    width: 110px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#phone {
+    flex: 1;
+}
+
+/* --- STATUS & SUCCESS --- */
+#location-status {
+    min-height: 20px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    color: #64748b;
+    text-align: center;
+}
 
 .hidden { display: none; }
 #successMessage { text-align: center; }
+
 .appointment-id-box { 
     background: #f8fafc; border: 2px dashed var(--primary); 
     padding: 15px; border-radius: 10px; margin: 15px 0; 
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .hospital-footer {
@@ -63,13 +120,19 @@ button:hover { background: var(--primary-dark); transform: translateY(-2px); }
     color: #64748b; font-size: 0.8rem; margin-top: auto;
 }
 
-/* PRINT LOGIC */
+/* --- RESPONSIVE FIX --- */
+@media (max-width: 480px) {
+    .phone-wrapper { flex-direction: row; }
+    #country-code { width: 90px; }
+}
+
+/* --- PRINT LOGIC --- */
 @media print {
     body * { visibility: hidden; }
     #printableArea, #printableArea * { visibility: visible; }
     #printableArea {
-        position: absolute; left: 50%; top: 20%;
-        transform: translateX(-50%); width: 80%;
+        position: absolute; left: 50%; top: 10%;
+        transform: translateX(-50%); width: 90%;
         border: 2px solid #000; padding: 30px; text-align: center;
     }
 }
